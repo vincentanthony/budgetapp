@@ -1,0 +1,25 @@
+input {display: block; padding: 1; margin: 0; border: 0; width: 100%;}
+td {margin: 0; padding: 2px;}
+
+table .w-10 { width:10%; }
+table .w-30 { width:30%; }
+table .w-14 { width:14%; }
+table .w-bg { width:40%; }
+table .w-sm { width:12%; }
+
+.handle {
+  cursor: pointer;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  /*z-index: -100; !* Behind the navbar *!*/
+  padding: 10px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+

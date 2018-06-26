@@ -1,0 +1,20 @@
+<div class="container sidebar-sticky">
+  <div class="row">
+    <div class="col-md-12">
+      <h5 class="projects-heading text-center">Projects   <i class="fa fa-plus-circle"></i></h5>
+
+      <hr>
+      <ul class="list-group">
+        <a
+          href="#"
+          class="list-group-item"
+          *ngFor="let budget of budgets; let i = index"
+          style="cursor: pointer"
+          (click)="onBudgetClick(i)"
+        >{{ budget.name }}</a>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
