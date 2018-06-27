@@ -15,18 +15,18 @@ export class AppComponent implements OnInit {
   items: Item[];
 
   constructor(private itemService: ItemService, private dragulaService: DragulaService) {
-    dragulaService.dropModel.subscribe((value) => {
-      this.onDropModel(value.slice(1));
-    });
-    dragulaService.removeModel.subscribe((value) => {
-      this.onRemoveModel(value.slice(1));
-    });
-
-    dragulaService.setOptions('items', {
-      moves: function (el, container, handle) {
-        return handle.className === 'handle';
-      }
-    });
+    // dragulaService.dropModel.subscribe((value) => {
+    //   this.onDropModel(value.slice(1));
+    // });
+    // dragulaService.removeModel.subscribe((value) => {
+    //   this.onRemoveModel(value.slice(1));
+    // });
+    //
+    // dragulaService.setOptions('items', {
+    //   moves: function (el, container, handle) {
+    //     return handle.className === 'handle';
+    //   }
+    // });
   }
 
   ngOnInit() {

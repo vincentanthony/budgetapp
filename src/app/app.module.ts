@@ -13,6 +13,8 @@ import { AccountComponent } from './account/account.component';
 import { CategoryComponent } from './category/category.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import {BudgetService} from './shared/budget.service';
+import {AppRoutingModule} from './app-routing.module';
+import { StartupComponent } from './startup/startup.component';
 
 
 @NgModule({
@@ -23,13 +25,15 @@ import {BudgetService} from './shared/budget.service';
     DetailComponent,
     AccountComponent,
     CategoryComponent,
-    BudgetListComponent
+    BudgetListComponent,
+    StartupComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
-    DragulaModule
+    DragulaModule,
+    AppRoutingModule
   ],
   providers: [BudgetService],
   bootstrap: [AppComponent]

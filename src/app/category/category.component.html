@@ -1,3 +1,64 @@
-<p>
-  category works!
-</p>
+<div class="container">
+  <h2 class="text-center">
+    {{ budget.name }}
+  </h2>
+
+  <div class="class col-10">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col" class="w-sm">Account #</th>
+        <th scope="col" class="w-bg">Category Name</th>
+        <th scope="col" class="w-sm">Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of budget.categories">
+        <td>{{ category.number }}</td>
+        <td>{{ category.description }}</td>
+        <td>{{ category.total }}</td>
+      </tr>
+        <!--<td colspan="3" class="add-button"><i class="fa fa-plus-circle"></i></td>-->
+      </tbody>
+    </table>
+    <div class="rox center-div">
+      <div class="add-button">
+      <i class="fa fa-plus-circle"></i>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- THIS IS THE DETAIL LEVEL HTML -->
+<!--<div class="col-10">-->
+  <!--<table class="table">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th></th>-->
+      <!--<th scope="col" class="w-bg">Description</th>-->
+      <!--<th scope="col" class="w-sm">Amount</th>-->
+      <!--<th scope="col" class="w-sm">Units</th>-->
+      <!--<th scope="col" class="w-sm">X</th>-->
+      <!--<th scope="col" class="w-sm">Rate</th>-->
+      <!--<th scope="col" class="w-sm">Subtotal</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody [dragula]='"items"' [dragulaModel]="items">-->
+    <!--<tr *ngFor="let item of items" >-->
+      <!--<td class="handle">=</td>-->
+      <!--<td><input [(ngModel)]="item.descripion" type="text" class="form-control"/></td>-->
+      <!--<td><input [(ngModel)]="item.amount" type="text" class="form-control"/></td>-->
+      <!--<td><input [(ngModel)]="item.units" type="text" class="form-control"/></td>-->
+      <!--<td><input [(ngModel)]="item.mult" type="text" class="form-control"/></td>-->
+      <!--<td><input [(ngModel)]="item.rate" type="text" class="form-control"/></td>-->
+      <!--<td><input [(ngModel)]="item.subTotal" type="text" class="form-control"/></td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<li *ngFor="let item of items">{{ item.descripion }}:: Subtotal:: {{ item.subTotal }}</li>-->
+<!--</div>-->

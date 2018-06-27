@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+.center-div {
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  width: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  background-color: red;
+  border-radius: 0px 0px 25px 25px;
+}

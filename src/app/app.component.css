@@ -22,4 +22,13 @@ table .w-sm { width:12%; }
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
+.new-sidebar {
+  padding: 10px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  height: calc(100vh - 48px);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  background-color: whitesmoke;
+}
+
+
 

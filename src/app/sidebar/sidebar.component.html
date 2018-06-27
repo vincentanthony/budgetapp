@@ -6,11 +6,12 @@
       <hr>
       <ul class="list-group">
         <a
-          href="#"
           class="list-group-item"
           *ngFor="let budget of budgets; let i = index"
           style="cursor: pointer"
           (click)="onBudgetClick(i)"
+          routerLinkActive="active"
+          [routerLink]="['/budget', i]"
         >{{ budget.name }}</a>
       </ul>
     </div>

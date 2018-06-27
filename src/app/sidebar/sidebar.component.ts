@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import { Budget } from '../shared/budget.model';
 import { BudgetService } from '../shared/budget.service';
@@ -10,6 +10,7 @@ import { BudgetService } from '../shared/budget.service';
 })
 export class SidebarComponent implements OnInit {
   budgets: Budget[];
+  index: number;
 
   constructor(private budgetService: BudgetService) {
 
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onBudgetClick(budget) {
-    console.log(budget);
+
   }
 
 }

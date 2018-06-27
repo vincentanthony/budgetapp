@@ -20,6 +20,10 @@ export class BudgetService {
   getBudgets() {
     return this.budgets.slice();
   }
+
+  getBudget(index) {
+    return this.budgets[index];
+  }
 }
 
 
