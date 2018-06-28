@@ -24,4 +24,8 @@ export class SidebarComponent implements OnInit {
 
   }
 
+  onAddProject() {
+    this.budgetService.addBudget();
+  }
+
 }

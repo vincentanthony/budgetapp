@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
 .center-div {
   display: flex;
   justify-content: center;
+
 }
 
 .add-button {
@@ -10,6 +13,22 @@
   text-align: center;
   font-size: 1.5em;
   color: white;
-  background-color: red;
+  background-color: gray;
   border-radius: 0px 0px 25px 25px;
+}
+
+.add-button:hover {
+  background-color: red;
+}
+
+
+
+table {
+  border: 1px solid darkgray;
+
+
+}
+
+.add-project:hover {
+  color: red;
 }

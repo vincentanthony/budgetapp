@@ -2,6 +2,9 @@ import { Budget } from './budget.model';
 import { Category } from '../category/category.model';
 
 export class BudgetService {
+
+
+
   private budgets: Budget[] = [
     new Budget('Fear, Inc', 350000, [
       new Category(2100, 'Producers', 16000),
@@ -17,12 +20,24 @@ export class BudgetService {
     ])
   ];
 
+
+
+
   getBudgets() {
     return this.budgets.slice();
   }
 
   getBudget(index) {
     return this.budgets[index];
+  }
+
+  addCategory(index) {
+    const newCategory = new Category(null, 'please enter description', null);
+    this.budgets[index].categories.push(newCategory);
+  }
+
+  addBudget() {
+    console.log('new budget added');
   }
 }
 

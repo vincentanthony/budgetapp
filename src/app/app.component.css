@@ -1,4 +1,4 @@
-input {display: block; padding: 1; margin: 0; border: 0; width: 100%;}
+
 td {margin: 0; padding: 2px;}
 
 table .w-10 { width:10%; }
@@ -6,6 +6,7 @@ table .w-30 { width:30%; }
 table .w-14 { width:14%; }
 table .w-bg { width:40%; }
 table .w-sm { width:12%; }
+
 
 .handle {
   cursor: pointer;

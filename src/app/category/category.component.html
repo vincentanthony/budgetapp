@@ -4,8 +4,8 @@
   </h2>
 
   <div class="class col-10">
-    <table class="table">
-      <thead>
+    <table class="table table-sm">
+      <thead class="thead-dark">
       <tr>
         <th scope="col" class="w-sm">Account #</th>
         <th scope="col" class="w-bg">Category Name</th>
@@ -14,15 +14,15 @@
       </thead>
       <tbody>
       <tr *ngFor="let category of budget.categories">
-        <td>{{ category.number }}</td>
-        <td>{{ category.description }}</td>
-        <td>{{ category.total }}</td>
+        <td><input [(ngModel)]="category.number" type="text" class="form-control"></td>
+        <td><input [(ngModel)]="category.description" type="text" class="form-control"></td>
+        <td><input [(ngModel)]="category.total" type="text" class="form-control"></td>
       </tr>
         <!--<td colspan="3" class="add-button"><i class="fa fa-plus-circle"></i></td>-->
       </tbody>
     </table>
     <div class="rox center-div">
-      <div class="add-button">
+      <div class="add-button" (click)="onAddRow()">
       <i class="fa fa-plus-circle"></i>
     </div>
     </div>

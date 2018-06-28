@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-
+]
 import { Budget } from '../shared/budget.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {BudgetService} from '../shared/budget.service';
-import {Category} from './category.model';
+
 
 @Component({
   selector: 'app-category',
@@ -25,6 +25,10 @@ export class CategoryComponent implements OnInit {
           this.budget = this.budgetService.getBudget(this.id);
         }
       );
+  }
+
+  onAddRow() {
+    this.budgetService.addCategory(this.id);
   }
 
 }
