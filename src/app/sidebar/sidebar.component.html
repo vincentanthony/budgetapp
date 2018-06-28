@@ -1,7 +1,7 @@
 <div class="container sidebar-sticky">
   <div class="row">
     <div class="col-md-12">
-      <h5 class="projects-heading text-center">Projects &nbsp;   <i class="fa fa-plus-circle add-project" (click)="onAddProject()"></i></h5>
+      <h5 class="projects-heading text-center">Projects &nbsp;   <i class="fa fa-plus-circle add-project" (click)="openNewProjectModal()"></i></h5>
 
       <hr>
       <ul class="list-group">
@@ -9,7 +9,6 @@
           class="list-group-item"
           *ngFor="let budget of budgets; let i = index"
           style="cursor: pointer"
-          (click)="onBudgetClick(i)"
           routerLinkActive="active"
           [routerLink]="['/budget', i]"
         >{{ budget.name }}</a>

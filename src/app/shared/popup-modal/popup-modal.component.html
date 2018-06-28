@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title">What's the name of your project?</h4>
+  <button type="button" class="close" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group">
+        <label for="projectName">Project Name</label>
+        <input type="text" class="form-control" formControlName="projectName" required="true" />
+      </div>
+    </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" [disabled]="!myForm.valid">
+    Add Project
+  </button>
+</div>
+</form>

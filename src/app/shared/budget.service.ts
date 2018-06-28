@@ -1,8 +1,9 @@
 import { Budget } from './budget.model';
 import { Category } from '../category/category.model';
+import {Subject} from 'rxjs';
 
 export class BudgetService {
-
+  budgetsChanged = new Subject<Budget[]>();
 
 
   private budgets: Budget[] = [
@@ -36,8 +37,12 @@ export class BudgetService {
     this.budgets[index].categories.push(newCategory);
   }
 
-  addBudget() {
-    console.log('new budget added');
+  addBudget(budget) {
+    const budgetName = budget.projectName;
+    const newBudget = new Budget(budgetName, null, [null]);
+    this.budgets.push(newBudget);
+    this.budgetsChanged.next(this.budgets.slice());
+    console.log(this.budgets);
   }
 }
 

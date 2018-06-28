@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Budget } from '../shared/budget.model';
 import { BudgetService } from '../shared/budget.service';
+import { PopupModalComponent } from '../shared/popup-modal/popup-modal.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +14,7 @@ export class SidebarComponent implements OnInit {
   budgets: Budget[];
   index: number;
 
-  constructor(private budgetService: BudgetService) {
+  constructor(private budgetService: BudgetService, private modalService: NgbModal) {
 
   }
 
@@ -20,12 +22,15 @@ export class SidebarComponent implements OnInit {
     this.budgets = this.budgetService.getBudgets();
   }
 
-  onBudgetClick(budget) {
+  openNewProjectModal() {
+    const modalRef = this.modalService.open(PopupModalComponent);
 
-  }
 
-  onAddProject() {
-    this.budgetService.addBudget();
+    modalRef.result.then((result) => {
+      this.budgetService.addBudget(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }

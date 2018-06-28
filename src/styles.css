@@ -2,11 +2,6 @@
 
 
 
-.center-div {
-  display: flex;
-  justify-content: center;
-
-}
 
 .add-button {
   width: 50px;
@@ -23,12 +18,16 @@
 
 
 
-table {
-  border: 1px solid darkgray;
+th {
+  border: 2px solid whitesmoke;
+}
 
-
+td {
+  border: 2px solid whitesmoke;
 }
 
 .add-project:hover {
   color: red;
 }
+
+

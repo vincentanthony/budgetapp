@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-]
+
 import { Budget } from '../shared/budget.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {BudgetService} from '../shared/budget.service';

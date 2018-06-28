@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,6 +15,7 @@ import { BudgetListComponent } from './budget-list/budget-list.component';
 import {BudgetService} from './shared/budget.service';
 import {AppRoutingModule} from './app-routing.module';
 import { StartupComponent } from './startup/startup.component';
+import { PopupModalComponent } from './shared/popup-modal/popup-modal.component';
 
 
 @NgModule({
@@ -26,16 +27,21 @@ import { StartupComponent } from './startup/startup.component';
     AccountComponent,
     CategoryComponent,
     BudgetListComponent,
-    StartupComponent
+    StartupComponent,
+    PopupModalComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     DragulaModule,
     AppRoutingModule
   ],
   providers: [BudgetService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PopupModalComponent
+  ]
 })
 export class AppModule { }
