@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-
-
 .add-button {
   width: 50px;
   text-align: center;
@@ -29,5 +26,25 @@ td {
 .add-project:hover {
   color: red;
 }
+
+.new-sidebar {
+  padding: 10px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  height: calc(100vh - 48px);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  background-color: whitesmoke;
+  max-width: 350px;
+}
+
+.more-info {
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.more-info:hover {
+  color: black;
+}
+
+
 
 

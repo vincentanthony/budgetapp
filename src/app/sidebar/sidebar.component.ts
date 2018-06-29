@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Budget } from '../shared/budget.model';
 import { BudgetService } from '../shared/budget.service';
 import { PopupModalComponent } from '../shared/popup-modal/popup-modal.component';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -13,6 +15,7 @@ import { PopupModalComponent } from '../shared/popup-modal/popup-modal.component
 export class SidebarComponent implements OnInit {
   budgets: Budget[];
   index: number;
+  subscription: Subscription;
 
   constructor(private budgetService: BudgetService, private modalService: NgbModal) {
 
@@ -20,6 +23,12 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.budgets = this.budgetService.getBudgets();
+    this.subscription = this.budgetService.budgetsChanged
+      .subscribe(
+        (budgets: Budget[]) => {
+          this.budgets = budgets;
+        }
+      );
   }
 
   openNewProjectModal() {
@@ -31,6 +40,10 @@ export class SidebarComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+  onDelete(i) {
+    this.budgetService.deleteBudget(i);
   }
 
 }

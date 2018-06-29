@@ -1,18 +1,27 @@
-<div class="container sidebar-sticky">
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <h5 class="projects-heading text-center">Projects &nbsp;   <i class="fa fa-plus-circle add-project" (click)="openNewProjectModal()"></i></h5>
 
       <hr>
-      <ul class="list-group">
-        <a
-          class="list-group-item"
-          *ngFor="let budget of budgets; let i = index"
-          style="cursor: pointer"
-          routerLinkActive="active"
-          [routerLink]="['/budget', i]"
-        >{{ budget.name }}</a>
-      </ul>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            <a
+              class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let budget of budgets; let i = index"
+              style="cursor: pointer"
+              routerLinkActive="active"
+              [routerLink]="['/budget', i]"
+            >{{ budget.name }}
+              <i class="fa fa-ellipsis-v more-info" [ngbPopover]="moreInfoPop" placement="right">
+                <ng-template #moreInfoPop><a class="more-info-pop" (click)="onDelete(i)">Delete</a><br>Rename</ng-template>
+
+              </i>
+            </a>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 

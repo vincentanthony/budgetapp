@@ -1,7 +1,11 @@
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
 import { Budget } from './budget.model';
 import { Category } from '../category/category.model';
-import {Subject} from 'rxjs';
 
+
+@Injectable()
 export class BudgetService {
   budgetsChanged = new Subject<Budget[]>();
 
@@ -39,10 +43,15 @@ export class BudgetService {
 
   addBudget(budget) {
     const budgetName = budget.projectName;
-    const newBudget = new Budget(budgetName, null, [null]);
+    const newBudget = new Budget(budgetName, null, [new Category(null, 'please enter description', null)]);
     this.budgets.push(newBudget);
     this.budgetsChanged.next(this.budgets.slice());
-    console.log(this.budgets);
+
+  }
+
+  deleteBudget(index: number) {
+    this.budgets.splice(index, 1);
+    this.budgetsChanged.next(this.budgets.slice());
   }
 }
 
