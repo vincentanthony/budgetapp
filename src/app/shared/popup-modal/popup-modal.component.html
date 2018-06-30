@@ -1,5 +1,6 @@
 <div class="modal-header">
-  <h4 class="modal-title">What's the name of your project?</h4>
+  <h4 class="modal-title" *ngIf="!editMode">What's the name of your project?</h4>
+  <h4 class="modal-title" *ngIf="editMode">Edit Project</h4>
   <button type="button" class="close" aria-label="Close"
           (click)="activeModal.dismiss('Cross click')">
   </button>
@@ -9,13 +10,16 @@
     <div class="container">
       <div class="form-group">
         <label for="projectName">Project Name</label>
-        <input type="text" class="form-control" formControlName="projectName" required="true" />
+        <input type="text" class="form-control" formControlName="projectName" required="true" [value]="budget.name"/>
       </div>
     </div>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-success" [disabled]="!myForm.valid">
+  <button *ngIf="!editMode" class="btn btn-success" [disabled]="!myForm.valid">
     Add Project
+  </button>
+  <button *ngIf="editMode" class="btn btn-success" >
+    Save Project
   </button>
 </div>
 </form>

@@ -8,6 +8,7 @@ import { Category } from '../category/category.model';
 @Injectable()
 export class BudgetService {
   budgetsChanged = new Subject<Budget[]>();
+  editMode = false;
 
 
   private budgets: Budget[] = [
@@ -51,6 +52,18 @@ export class BudgetService {
 
   deleteBudget(index: number) {
     this.budgets.splice(index, 1);
+    this.budgetsChanged.next(this.budgets.slice());
+  }
+
+  updateBudget(index: number, name) {
+    const budgetName = name.projectName;
+    this.budgets[index].name = budgetName;
+    this.budgetsChanged.next(this.budgets.slice());
+  }
+
+  duplicateBudget(index) {
+    const duplicateBudget = Object.assign({}, this.budgets[index]);
+    this.budgets.push(duplicateBudget);
     this.budgetsChanged.next(this.budgets.slice());
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h5 class="projects-heading text-center">Projects &nbsp;   <i class="fa fa-plus-circle add-project" (click)="openNewProjectModal()"></i></h5>
+      <h5 class="projects-heading text-center">Projects &nbsp;   <i class="fa fa-plus-circle add-project" (click)="openProjectModal()"></i></h5>
 
       <hr>
       <div class="row">
@@ -14,10 +14,24 @@
               routerLinkActive="active"
               [routerLink]="['/budget', i]"
             >{{ budget.name }}
-              <i class="fa fa-ellipsis-v more-info" [ngbPopover]="moreInfoPop" placement="right">
-                <ng-template #moreInfoPop><a class="more-info-pop" (click)="onDelete(i)">Delete</a><br>Rename</ng-template>
+              <div>
+                <i
+                  class="fa fa-cog more-info"
+                  style="cursor: pointer"
+                  (click)="openProjectModal(i)"
+                >
+                  <!--<ng-template #moreInfoPop><a (click)="openProjectModal(i)" >Settings</a></ng-template>-->
 
-              </i>
+                </i>
+                <i
+                  class="fa fa-copy more-info"
+                  style="cursor: pointer"
+                  (click)="onDuplicate(i)"
+                >
+                  <!--<ng-template #moreInfoPop><a (click)="openProjectModal(i)" >Settings</a></ng-template>-->
+
+                </i>
+              </div>
             </a>
           </ul>
         </div>

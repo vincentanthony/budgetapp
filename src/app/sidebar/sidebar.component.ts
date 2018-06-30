@@ -14,7 +14,6 @@ import { PopupModalComponent } from '../shared/popup-modal/popup-modal.component
 })
 export class SidebarComponent implements OnInit {
   budgets: Budget[];
-  index: number;
   subscription: Subscription;
 
   constructor(private budgetService: BudgetService, private modalService: NgbModal) {
@@ -31,19 +30,36 @@ export class SidebarComponent implements OnInit {
       );
   }
 
-  openNewProjectModal() {
+  openProjectModal(index) {
+
+    console.log(index);
+
     const modalRef = this.modalService.open(PopupModalComponent);
+    modalRef.componentInstance.index = index;
 
+    if (index === undefined) {
+      this.budgetService.editMode = false;
+      modalRef.result.then((result) => {
+        this.budgetService.addBudget(result);
+      }).catch((error) => {
 
-    modalRef.result.then((result) => {
-      this.budgetService.addBudget(result);
-    }).catch((error) => {
-      console.log(error);
-    });
+      });
+    } else  {
+      this.budgetService.editMode = true;
+      modalRef.result.then((result) => {
+        this.budgetService.updateBudget(index, result);
+      }).catch((error) => {
+
+      });
+    }
+
   }
 
-  onDelete(i) {
-    this.budgetService.deleteBudget(i);
+  onDuplicate(index) {
+    this.budgetService.duplicateBudget(index);
+    console.log(this.budgets);
   }
+
+
 
 }
