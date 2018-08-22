@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import { Item } from './item.model';
-import {ItemService} from './item.service';
+import { Item } from './item/item.model';
+import {ItemService} from './item/item.service';
 import {DragulaService} from 'ng2-dragula';
 
 @Component({
